@@ -9,11 +9,11 @@ header {
 
 
 .tease-container {
-	background: #eee;
+	background: #ccc;
+	height: 100px;
 }
 
 .tease-container img {
-	text-align: center;
 }
 
 /*--Player--*/
