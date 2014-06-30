@@ -3,6 +3,11 @@ header {
 	height: 60px;
 }
 
+#j-rail-tease {
+	position: fixed;
+	top: 100px;
+	right: 0px;
+}
 #stream {
 	float: left;
 	width: 600px;
