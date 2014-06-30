@@ -3,6 +3,17 @@ header {
 	height: 60px;
 }
 
+#player-container {
+	height: 300px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.player-bg {
+	background: #222;
+}
+
 #j-rail-tease {
 	position: fixed;
 	top: 100px;
