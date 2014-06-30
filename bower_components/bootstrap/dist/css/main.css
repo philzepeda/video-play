@@ -8,7 +8,12 @@ header {
 }
 
 
-#stream {
+.tease-container {
+	background: #ccc;
+	height: 100px;
+}
+
+.tease-container img {
 }
 
 /*--Player--*/
@@ -35,6 +40,7 @@ header {
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 0.5em;
 }
+
 
 /*--Playlist small--*/
 
