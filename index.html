@@ -1,15 +1,16 @@
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="en"><head>
 	<title>Video Play Demo</title>
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
 <div class="navbar navbar-inverse"></div>
 
-<div id="stream">
+<div id="stream" class="container col-md-8">
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin dignissim elementum. In venenatis vulputate lacus, sit amet tristique diam pretium in. Morbi facilisis at magna in sollicitudin. Praesent at dolor sed quam luctus venenatis suscipit eu dolor. Aenean pulvinar lacinia mauris quis bibendum. Suspendisse viverra, mauris ut volutpat elementum, metus massa vulputate nisl, vitae tincidunt mi ligula in dui. Ut feugiat sagittis felis.</p>
 
 	<p>Nulla sed arcu lectus. Praesent suscipit congue diam et porttitor. Donec consequat lorem sit amet est dignissim interdum. Nam fermentum orci et diam sollicitudin mollis. Aliquam eget congue enim, ut eleifend dolor. Aenean consequat viverra venenatis. Proin in dui vel lectus dictum posuere ut ac quam. Nam ultricies faucibus tellus, a varius ligula. Pellentesque quis nunc id lacus lobortis cursus. Sed at neque nec tortor tempus facilisis. Curabitur id fermentum tortor, eget eleifend quam. Nunc ut felis et felis laoreet elementum. Nullam elit sapien, posuere at velit eu, volutpat tincidunt sem. Nam at turpis at ipsum fermentum venenatis sit amet eu justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
@@ -101,12 +102,15 @@
 	<p>Nam fermentum, magna pulvinar lobortis elementum, tellus nulla eleifend est, a bibendum nibh purus vitae est. Proin ligula est, semper vel nisl non, imperdiet mattis risus. Quisque ac mauris risus. Vivamus eget lacus massa. Proin cursus lobortis mi ac aliquam. Sed lacinia, arcu vitae dignissim sollicitudin, dolor libero venenatis nibh, vitae semper nisi ligula sed metus. Pellentesque id dignissim quam. Pellentesque ut dolor in tortor porta tempus sed vel mauris. Suspendisse dictum vestibulum nisl ut bibendum.</p>
 </div>
 <div id="player-container">
-<div id="j-rail-tease">
+<div id="player">
 	<img src="img/300x168.gif">
-	<h2>This is the video headline</h2>
-	<div class="playlist-small">
-		<h2>Next: <span>This is the next video</span></h2>
-	</div>
+	<h4>This is the video headline</h4>
+	<ul class="playlist-small">
+		<li>
+			<img src="img/100x56.gif">
+			<h5>Next: <span>This is the next video</span></h5>	
+		</li>
+	</ul>
 
 </div>
 </div>

@@ -1,0 +1,58 @@
+header {
+	background: #333;
+	height: 60px;
+}
+
+.navbar {
+	border-radius: 0;
+}
+
+
+#stream {
+}
+
+/*--Player--*/
+
+#player-container {
+	height: 300px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.player-bg {
+	background: #222;
+}
+
+#player {
+	position: fixed;
+	top: 60px;
+	right: 0px;
+}
+
+
+#player h4 {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 0.5em;
+}
+
+/*--Playlist small--*/
+
+.playlist-small {
+	padding: 0;
+}
+
+.playlist-small li {
+	list-style-type: none;
+	margin: 0;
+}
+
+
+.playlist-small li h5 {
+	width: 75%;
+}
+
+.playlist-small img {
+	float:left;
+	margin-right: 1em;
+}
