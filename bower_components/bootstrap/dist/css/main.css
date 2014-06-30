@@ -2,3 +2,14 @@ header {
 	background: #333;
 	height: 60px;
 }
+
+#stream {
+	float: left;
+	width: 600px;
+}
+
+
+#rail {
+	float:left;
+	width: 340px;
+}
