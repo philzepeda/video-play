@@ -5,27 +5,21 @@ header {
 
 #player-container {
 	height: 300px;
-	position: fixed;
-	top: 0;
+	top: 60px;
 	width: 100%;
+	background-color: black;
+	z-index: 0;
+	overflow: hidden;
 }
 
 .player-bg {
 	background: #222;
 }
 
-#j-rail-tease {
-	position: fixed;
-	top: 100px;
-	right: 0px;
-}
 #stream {
-	float: left;
+	background-color: white;	
+	z-index: 1;
 	width: 600px;
-}
-
-
-#rail {
-	float:left;
-	width: 340px;
+	margin-left: auto;
+	margin-right: auto;
 }
