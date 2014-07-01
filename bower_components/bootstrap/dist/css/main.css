@@ -5,6 +5,12 @@ header {
 
 .navbar {
 	border-radius: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 60px;
+	width: 100%;
+	z-index: 100;
 }
 
 
@@ -16,6 +22,12 @@ header {
 .tease-container img {
 }
 
+#stream {
+	margin-top: 80px;
+}
+
+
+
 /*--Player--*/
 
 #player-container {
@@ -23,6 +35,7 @@ header {
 	position: fixed;
 	top: 0;
 	width: 100%;
+	z-index: 200;
 }
 
 .player-bg {
@@ -32,7 +45,6 @@ header {
 #player {
 	position: fixed;
 	top: 60px;
-	right: 0px;
 }
 
 

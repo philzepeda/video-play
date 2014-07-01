@@ -1,0 +1,317 @@
+header {
+	background: #333;
+	height: 60px;
+}
+
+.navbar {
+	border-radius: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 60px;
+	width: 100%;
+	z-index: 100;
+	transition: all 0.2s ease;
+}
+
+
+#stream {
+	margin-top: 60px;
+
+}
+
+#stream .story {
+	border-bottom: 20px solid #000;
+	padding: 0 0 2em;
+}
+
+.navbar.max {
+	height: 600px;
+	background: rgba(0,0,0,0.95);
+}
+
+#stream .tease-container {
+	position: relative;
+	float: left;
+	width: 320px;
+	margin-right: 40px;
+}
+
+#stream .tease-container h4 {
+	margin-bottom: 0;
+}
+
+#stream .tease {
+	width: 300px;
+	height: 140px;
+	background: #ccc;
+}
+
+
+
+#stream .tease-container h5 {
+	position: absolute;
+	top: 5em;
+	left: 1em;
+}
+
+/*--Player--*/
+
+#player-container {
+	position: fixed;
+	top: 80px;
+	right: 80px;
+	z-index: 200;
+	transition: all 0.2s ease;
+	width: 300px;
+
+}
+
+#player-container.active {
+	width: 450px;
+}
+
+
+#player {
+	background: #ccc;
+	height: 168px;
+	width: 300px;
+	transition: all 0.2s ease;
+}
+
+.active #player {
+	width: 450px;
+	height: 253px;
+}
+
+
+#player-container h4 {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 0.5em;		
+	transition: all 0.5s ease;
+
+}
+
+#player-container .video-options {
+	display: none;
+	position: absolute;
+	top: -40px;
+	right: 0px;
+	background: transparent;
+	color: #eee;
+	border-color: #666;
+}
+
+#player-container.active .video-options {
+	display: block;
+}
+
+.video-options .btn, .video-footer .btn, .featured-nav .btn {
+	background: transparent;
+	color: #eee;
+	border-color: #666;
+}
+
+.featured-nav .tags {
+	float: left;
+	clear: both;
+	margin-top: 1em;
+}
+
+.video-options .active {
+	background: #666;
+}
+
+.video-footer {
+	opacity: 0;
+	margin-top: 2em;
+}
+
+.video-footer .btn {
+	float: right;
+}
+
+.active h4 {
+	color: #eee;
+}
+
+.caption, .share {
+	opacity: 0;
+	
+
+}
+
+.active .caption, .active .share, .active .video-footer, .active .close, .active .featured-nav  {
+	opacity: 1;
+	transition: all 0.5s ease;
+	transition-delay: 0.2s;
+}
+
+.caption {
+	color: #fff;
+	font-size: 0.9em;
+	line-height: 1.5em;
+}
+
+.share {
+	margin-top: 1em;
+	padding: 0;
+}
+
+.share .btn {
+	padding: 6px 28px;
+	margin-right: 5px;
+}
+
+.close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	opacity: 0;
+}
+
+
+.playlist-add {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.now .playlist-add {
+	color: #999;
+}
+
+
+
+/*--Playlist large--*/
+.video-nav-container {
+	display: none;
+}
+
+.video-nav {
+	position: fixed;
+	top: 50px;
+	right: 580px;
+	z-index: 200;
+	color: #eee;
+	border-left: 1px solid #eee;
+	padding-left: 30px;
+}
+
+.video-nav-container.active {
+	display: block;
+}
+
+.video-nav ul {
+	padding: 0;
+	margin: 0;
+}
+
+.video-nav .tease {
+	width: 120px;
+	height: 68px;
+	list-style-type: none;
+	padding: 0;
+}
+
+.video-nav .tease img {
+	width: 120px;
+	height: 68px;
+	background: #ccc;
+}
+
+.video-nav h4 {
+	margin-top: 0;
+}
+
+.video-nav h6 {
+	float: left;
+	clear: left;
+}
+
+.featured-nav {
+	color: #fff;
+	position: fixed;
+	z-index: 200;
+	top: 40px;
+	left: 1em;
+	opacity: 0;
+	transition: all 0.5s ease;
+	transition-delay: 0.2s;
+}
+
+.active .featured-nav {
+	opacity: 0.9;
+}
+
+.featured-nav ul {
+	padding: 0;
+	opacity: 0.8;
+}
+
+.featured-nav li {
+	list-style-type: none;
+	width: 120px;
+	float: left;
+	margin-right: 1em;
+}
+
+.featured-nav li img {
+	width: 120px;
+	height: 68px;
+	background: #eee;
+
+}
+
+.featured-nav .source {
+	text-transform: uppercase;
+	font-size: 10px;
+	margin-bottom: 0;
+}
+
+.featured-nav .hero {
+	margin-bottom: 1em;
+	float: left;
+}
+
+.featured-nav .hero li {
+	margin-right: 1em;
+	width: 260px;
+}
+
+.featured-nav .hero img {
+	width: 260px;
+	height: 146px;
+}
+
+.featured-nav ul h4, .featured-nav ul h6 {
+	margin-bottom: 0;
+}
+
+/*--Playlist small--*/
+
+.playlist-small {
+	padding: 0;
+}
+
+.playlist-small li {
+	list-style-type: none;
+	margin: 0;
+	float: left;
+}
+
+
+.playlist-small li h5 {
+	width: 180px;
+	float: left;
+	margin: 0;
+}
+
+.playlist-small img {
+	float:left;
+	margin-right: 1em;
+}
+
+.active .playlist-small {
+	display: none;
+}
+
