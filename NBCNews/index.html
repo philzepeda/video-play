@@ -11,11 +11,271 @@
 </h3><ul><li><a href="http://www.nbcnews.com/news/video">Video</a></li><li><a href="http://www.nbcnews.com/news/photo">Photo</a></li></ul></div></div><div class="col-xs-4"><div class="dropdown_col"><h3 class="item-heading">More From NBC
 </h3><ul><li><a href="http://nbcsports.com/">Sports</a></li><li><a href="http://cnbc.com/">CNBC</a></li><li><a href="http://www.msnbc.com/">MSNBC.com</a></li><li><a href="http://nbc.com/">NBC.com</a></li><li><a href="http://breakingnews.com/">Breakingnews.com</a></li><li><a href="http://www.nbclearn.com/">NBC Learn</a></li><li><a href="http://recode.net/">Re/Code</a></li><li><a href="http://www.peacockproductions.tv/">Peacock Productions</a></li><li><a href="http://www.veterans.nbcnews.com/">Next Steps for Vets</a></li><li><a href="http://parenttoolkit.com/">Parent Toolkit</a></li></ul></div></div></div></div></div>
 
-<div class="video-header" style="width: 1200px; height: 200px; margin: 0 auto; overflow: hidden; position: relative; margin-bottom: 10px">
 
-<video style="position: absolute; top:-137" width="1200px" height="705px" autoplay muted>
-  <source src="video.mp4" type="video/mp4">
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function($) {
+	
+		var interval = 1;
+
+	    function delayCheck() {
+	    	console.log('interval '+interval)
+	       if(interval == 5)
+	       {
+	           $('.video-tray.expanded').addClass('hidden')
+	           interval = 1;
+	       }
+	       interval = interval+1; console.log(interval);
+	    }
+	
+	    $('.video-tray').bind('mousemove keypress', function() {
+	         $('.video-tray.expanded').removeClass('hidden')
+	        interval = 1;
+	
+	        // reset the delay timer
+	        clearInterval(_delay); console.log('reset timer');
+	        _delay = setInterval(delayCheck, 500);
+	    });
+		
+		$('.video-tray').click(function() {
+			$('#video-main').prop('controls', true)
+			if($(this).hasClass('expanded')) {
+				$('.video-tray').removeClass('expanded')
+				$('.video-tray').addClass('collapsed')
+				$('#video-main').prop('muted', true)
+			} else if($(this).hasClass('collapsed')) {
+				$('.video-tray').removeClass('collapsed')
+				$('.video-tray').addClass('expanded')
+				$('#video-main').prop('muted', false)
+				_delay = setInterval(delayCheck, 500);
+			} else {
+				$('.video-tray').removeClass('thumb')
+				$('.video-tray').addClass('collapsed')
+			}
+		});
+		
+		$('.video-close a').click(function(e) {
+			
+			if($('.video-tray').hasClass('thumb')) {
+				$('.video-tray').removeClass('thumb')
+				$('.video-tray').addClass('collapsed')
+				$('#video-main').prop('muted', true)
+				$('#video-main').prop('controls', false)
+			} else {
+				$('.video-tray').removeClass('collapsed')
+				$('.video-tray').removeClass('expanded')
+				$('.video-tray').addClass('thumb')
+				$('#video-main').prop('muted', true)
+			}
+			return false;
+		});
+		
+		$('.video-menu a').click(function(e){
+		
+			var ul = $(this).parent().parent()
+			var li = $(this).parent()
+			
+			// Title
+			var title = $('span', li).text()
+			$('.video-info h2').text(title)
+			
+			// Video
+			$('#video-main').get(0).src = this;
+			$('#video-main').get(0).load();
+			$('#video-main').get(0).play();
+			
+			// Selection
+			$('li', ul).each( function(index) {
+				$(this).removeClass('active')
+			})
+			$(li).addClass('active')
+
+			return false;
+		})
+	});
+</script>
+	
+<style>
+
+	.item-heading_overlay a:link {
+		color: white !important
+	}
+	.video-tray {
+		width: 1200px; 
+		margin: 0 auto; 
+		position: relative; 
+		margin-bottom: 10px;
+		cursor:pointer;
+		z-index: 99;
+	}
+	#video-main {
+		position: absolute; 
+		width: 1200px; 
+	}
+	.video-controls {
+		position: absolute;
+		width: 100%;
+		text-align: center;
+	}
+	.video-info {
+		position: absolute;
+		padding-left: 20px;
+		width: 480px;
+	}
+	.video-info h2 {
+		font-family: proxima_nova_ltsemibold,Helvetica,Arial,sans-serif;
+		font-weight: 400;
+		font-size: 1.6em;
+		line-height: 1.2;
+		text-shadow: 1px 0 8px black;
+	}
+	.video-close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+	.video-menu {
+		position: absolute;
+		height: 675px;
+		background: rgba(0,0,0,0.7);
+		width: 300px;
+		right: 0;
+	}
+	.video-menu h2 {
+		padding: 25px 0 0 25px;
+	}
+	.video-menu ul {
+		padding: 0;
+		list-style-type: none;
+		
+	}
+	.video-menu ul li {
+		clear: left;
+		font-size: 0.8em;
+		font-weight: bold;
+		margin: 20px 0;
+		opacity: 0.5;
+		padding-right: 20px;
+	}
+	.video-menu ul li.active {
+		opacity: 1;
+	}
+	.video-menu img{
+		width:64px;
+		float: left;
+		margin: 0 10px 0 0;
+	}
+	
+	/* Animation */
+	.video-tray, .video-main, .video-controls, .video-info, .video-menu {
+		transition-property: all;
+		transition-duration: 0.4s;
+		transition-timing-function:ease-out;
+	}
+	
+	/* Expanded */
+	.video-tray.expanded {
+		height: 675px;
+		overflow: hidden; 
+	}
+	.video-tray.expanded #video-main {
+		top: 0;
+	}
+	.video-tray.expanded .video-play-btn {
+		margin-top: 320px;
+		opacity: 0;
+	}
+	.video-tray.expanded .video-info {
+		padding-top: 610px;
+		opacity: 1;
+	}
+	.video-tray.expanded .video-menu {
+		top: 0;
+		opacity: 1;
+	}
+	
+	/* Collapsed */
+	.video-tray.collapsed {
+		height: 120px;
+		overflow: hidden; 
+	}
+	.video-tray.collapsed #video-main {
+		top:-137px;
+	}
+	.video-tray.collapsed .video-play-btn {
+		margin-top: 20px;
+		opacity: 1;
+	}
+	.video-tray.collapsed .video-info {
+		padding-top: 30px;
+		opacity: 1;
+	}
+	.video-tray.collapsed .video-menu {
+		top: -675px;
+		opacity: 0;
+	}
+	
+	/* Thumb */
+	.video-tray.thumb {
+		overflow: visible;
+		left: 1050px;
+	}
+	.video-tray.thumb #video-main {
+		top:0;
+		width: 120px;
+		height: 80px
+	}
+	.video-tray.thumb .video-controls {
+		width: 120px;
+	}
+	.video-tray.thumb .video-play-btn {
+		width: 40px;
+		margin-top: 20px;
+		opacity: 1;
+	}
+	.video-tray.thumb .video-info {
+		opacity: 0;
+	}
+	.video-tray.thumb .video-menu {
+		top: -675px;
+		opacity: 0;
+	}
+	
+	
+	/* Hiding */
+	.video-tray.expanded.hidden .video-menu, .video-tray.expanded.hidden .video-info {
+		opacity: 0;
+	}
+
+	
+</style>
+
+<div class="video-tray collapsed">
+
+<video id="video-main" autoplay muted controls >
+	<source src="videos/snowden.mp4" type="video/mp4">
 </video>
+<div class="video-controls">
+	<img class="video-play-btn" src="../img/playBtn.png" alt="play button" />
+</div>
+<div class="video-info">
+	<h2>Exclusive Interview: Inside The Mind Of Edward Snowden</h2>
+</div>
+<div class="video-menu">
+	<h2>NBC News Videos</h2>
+	<ul>
+		<li class="active"><a href="videos/snowden.mp4"><img src="videos/snowden.jpg" alt="" /> <span>Exclusive Interview: Inside The Mind Of Edward Snowden</span></a></li>
+		<li><a href="videos/clinton.mp4"><img src="videos/clinton.jpg" alt="" /> <span>Clinton Address Karl Rove's Health Comments</span></a></li>
+		<li><a href="videos/fire.mp4"><img src="videos/fire.jpg" alt="" /> <span>Fast-moving wildfire consumes 800 acres east of Los Angeles</span></a></li>
+		<li><a href="videos/living-large.mp4"><img src="videos/living-large.jpg" alt="" /> <span>Living Large in a Tiny Home | The Art of the Starup</span></a></li>
+		<li><a href="videos/pistorius.mp4"><img src="videos/pistorius.jpg" alt="" /> <span>Oscar Pistorius Is Mentally Fit to Stand Trial</span></a></li>
+		<li><a href="videos/teenager.mp4"><img src="videos/teenager.jpg" alt="" /> <span>This Teenager Will Revolutionize Nuclear Power</span></a></li>
+		<li><a href="videos/waitress.mp4"><img src="videos/waitress.jpg" alt="" /> <span>Waitress Gets $10K After Racist Receipt</span></a></li>
+	</ul>
+</div>
+<div class="video-close">
+	<a href="#"><img class="video-close-btn" src="../img/closeBtn.png" alt="close button" /></a>
+</div>
 
 </div>
 
